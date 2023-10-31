@@ -1,0 +1,161 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Joke API",
+    "dateExported": "2023-10-31T15:53:14.190Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "78ffcd6c-e068-44e2-b67c-b3228187e25d",
+            "colId": "72d35ac5-6097-480c-8181-d347d17d132a",
+            "containerId": "",
+            "name": "Get Random Joke",
+            "url": "http://localhost:3000/random",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-30T06:07:09.425Z",
+            "modified": "2023-10-30T06:08:57.612Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "ec4fe7ea-acd3-4168-85a4-693f60018d17",
+            "colId": "72d35ac5-6097-480c-8181-d347d17d132a",
+            "containerId": "",
+            "name": "get Specific Joke",
+            "url": "http://localhost:3000/specific/10",
+            "method": "GET",
+            "sortNum": 35000,
+            "created": "2023-10-30T06:23:31.839Z",
+            "modified": "2023-10-31T08:32:36.640Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b6af300e-de7a-4a51-b128-55f33de186b0",
+            "colId": "72d35ac5-6097-480c-8181-d347d17d132a",
+            "containerId": "",
+            "name": "Get Filtered Jokes",
+            "url": "http://localhost:3000/filtered?type=Math",
+            "method": "GET",
+            "sortNum": 42500,
+            "created": "2023-10-30T02:22:51.800Z",
+            "modified": "2023-10-31T08:34:22.490Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "type",
+                    "value": "Math",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "b066ec6d-74c4-467e-af0a-66e8a31946ae",
+            "colId": "72d35ac5-6097-480c-8181-d347d17d132a",
+            "containerId": "",
+            "name": "Post New Joke",
+            "url": "http://localhost:3000/newJoke",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-10-30T07:23:25.855Z",
+            "modified": "2023-10-31T02:16:15.634Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "jokeType",
+                        "value": "Test"
+                    },
+                    {
+                        "name": "jokeText",
+                        "value": "This is a test Joke"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "4fb90912-e0a1-44ea-981f-c4a89b305b06",
+            "colId": "72d35ac5-6097-480c-8181-d347d17d132a",
+            "containerId": "",
+            "name": "Put New Joke",
+            "url": "http://localhost:3000/joke/7",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2023-10-30T12:42:38.929Z",
+            "modified": "2023-10-31T13:06:24.154Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "jokeText",
+                        "value": "Hello, How do u do"
+                    },
+                    {
+                        "name": "jokeType",
+                        "value": "Test"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "c86f8b33-445b-4abb-ab16-46ce17f068ad",
+            "colId": "72d35ac5-6097-480c-8181-d347d17d132a",
+            "containerId": "",
+            "name": "Patch Specific Joke",
+            "url": "http://localhost:3000/joke/9",
+            "method": "PATCH",
+            "sortNum": 90000,
+            "created": "2023-10-31T04:16:28.020Z",
+            "modified": "2023-10-31T13:06:58.014Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "jokeText",
+                        "value": "Patched Joke Data"
+                    },
+                    {
+                        "name": "jokeType",
+                        "value": "Patched",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "id",
+                        "value": "",
+                        "isDisabled": true
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "fb84b0c2-e37d-41ba-b0ba-502b20771916",
+            "colId": "72d35ac5-6097-480c-8181-d347d17d132a",
+            "containerId": "",
+            "name": "Delete Specific Joke",
+            "url": "http://localhost:3000/joke/8",
+            "method": "DELETE",
+            "sortNum": 100000,
+            "created": "2023-10-30T14:04:03.824Z",
+            "modified": "2023-10-31T13:08:17.230Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
