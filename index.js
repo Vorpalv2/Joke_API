@@ -15,69 +15,56 @@ app.get(`/random`,(req,res)=>{
   res.send(jokes[Math.round(Math.random()*jokes.length)])
 })
 //2. GET a specific joke
-app.get(`/specific/:id`,(req,res)=>{
-  const id = parseInt(req.params.id)
-  const joke = jokes.find((joke)=>joke.id === id)
-  res.send(joke)
+app.get(`/joke/:id`,(req,res)=>{
+  res.send(jokes.find((joke)=>joke.id===parseInt(req.params.id)))
 })
 //3. GET a jokes by filtering on the joke type
 app.get(`/filtered`,(req,res)=>{
-  const query = req.query.find;
-  const joke = jokes.filter((joke)=>joke.jokeType===query)
-  res.send(joke)
+  res.send(jokes.filter((joke)=>joke.jokeType === req.query.type))
 })
 //4. POST a new joke
 app.post(`/newJoke`,(req,res)=>{
   const newJoke = {
-    id:jokes.length+1,
-    jokeText:req.body.jokeText,
-    jokeType:req.body.jokeType
+    id :jokes.length+1,
+    jokeText : req.body.jokeText,
+    jokeType : req.body.jokeType
   }
   jokes.push(newJoke)
   res.send(jokes[jokes.length-1])
 })
 //5. PUT a joke
 app.put(`/joke/:id`,(req,res)=>{
-  const id = parseInt(req.params.id)
-  const findIndex = jokes.findIndex((joke)=>joke.id===id)
-
+  const FindIndex = jokes.findIndex((joke)=>joke.id === parseInt(req.params.id))
   const putJoke = {
-    id:id,
-    jokeText: req.body.jokeText,
-    jokeType:req.body.jokeType
+    id:parseInt(req.params.id),
+    jokeText : req.body.jokeText,
+    jokeType : req.body.jokeType
   }
-  jokes[findIndex]=putJoke
-  res.send(jokes[findIndex])
+  jokes[FindIndex] = putJoke
+  res.send(jokes[FindIndex])
 })
 //6. PATCH a joke
 app.patch(`/joke/:id`,(req,res)=>{
-  const id = parseInt(req.params.id)
-  const findJoke = jokes.find((joke)=>joke.id===id)
-  const findJokeIndex = jokes.findIndex((joke)=>joke.id===id)
-
+  const FindIndex = jokes.findIndex((joke)=>joke.id === parseInt(req.params.id))
+  const FindJoke = jokes.find((joke)=>joke.id === parseInt(req.params.id))
   const patchedJoke = {
-    id:id,
-    jokeText : req.body.jokeText||findJoke.jokeText,
-    jokeType:req.body.jokeType||findJoke.jokeType
+    id: parseInt(req.params.id),
+    jokeText : req.body.jokeText||FindJoke.jokeText,
+    jokeType : req.body.jokeType||FindJoke.jokeType,
   }
-  jokes[findJokeIndex]=patchedJoke
-  res.send(jokes)
+  jokes[FindIndex] = patchedJoke,
+  res.send(jokes[FindIndex])
 })
 //7. DELETE Specific joke
-
 app.delete(`/joke/:id`,(req,res)=>{
-  const id = parseInt(req.params.id)
-
-  const findJokeIndex = jokes.findIndex((joke)=>joke.id===id)
-  if(findJokeIndex>-1){
-    jokes.splice(findJokeIndex,1)
-    res.send(jokes).status(200)
+  const FindIndex = jokes.findIndex((joke)=>joke.id===parseInt(req.params.id))
+  if(FindIndex>-1){
+    res.status(200).send(jokes.splice(FindIndex,1))
   }
   else{
-    res.send(`Could'nt find the ID with number ${id}`).status(400)
+    res.status(404).send("Invalid ID")
   }
 })
-
 //8. DELETE All jokes
 
 app.listen(port, () => {
